@@ -2,9 +2,9 @@ import React from "react";
 import "./header.css";
 import { Container, Row, Button } from "reactstrap";
 import { NavLink, Link } from "react-router-dom";
-import Logo from "../..//assets/images/logo.png";
+import Logo from "../../assets/images/logo.png";
 // import {FaTelegramPlane} from "react-icons/fa"
-import { useState } from 'react';
+import { useRef,useEffect } from 'react';
 
 const nav__links = [
   {
@@ -30,16 +30,30 @@ const nav__links = [
 ];
 
 const Header = () => {
+
+  const headerRef = useRef(null)
+  const stickyHeaderFunction = () => {
+    window.addEventListener("scroll", () => {
+      if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
+        headerRef.current.classList.add("sticky__header")
+      } else {
+        headerRef.current.classList.remove("sticky__header");
+        
+      }
+    })
+  }
+  useEffect(() => {
+    stickyHeaderFunction()
+    return window.removeEventListener("scroll",stickyHeaderFunction)
+  })
   return (
-    <header className="header">
+    <header className="header" ref={headerRef}>
       <Container>
         <Row>
           <div className="nav__wrapper d-flex align-items-center justify-content-between">
             {/* Logo */}
             <div className="logo">
-              <img src={Logo} alt="" />
-              {/* <FaTelegramPlane /> */}
-              {/* <h1>Cu Travelling</h1> */}
+              <img src={Logo} alt="logo" />
             </div>
 
             {/* End Logo */}

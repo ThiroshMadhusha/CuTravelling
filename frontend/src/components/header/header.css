@@ -5,12 +5,14 @@
   --text-color: #6e7074;
   --font-name: "Montserrat", sans-serif;
   --subtitle-font-name: "Island Moments", cursive;
+
 }
 
+/* new adding space */
+.navigation{
+  margin-right: 5rem;
+}
 .header {
-  /* position: fixed; */
-  /* display: flex;
-  background: rgb(234, 236, 238); */
   width: 100%;
   height: 80px;
   line-height: 80px;
