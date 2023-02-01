@@ -42,10 +42,17 @@ ul {
 }
 
 .primary__btn {
-  background: var(--secondary-color) !important;
+  background: var(--primary-color) !important;
   border: none !important;
   border-radius: 50px !important;
   padding: 0.4rem 1.5rem !important;
+    font-weight: 600 !important;
+
+}
+.primary__btn:hover{
+    background: rgb(3, 137, 247) !important;
+    color: #fdfdfd !important;
+    font-weight: 600 !important;
 }
 
 .primary__btn a {
