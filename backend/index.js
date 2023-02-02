@@ -4,7 +4,11 @@ import mongoose from "mongoose";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 
+// add routes
+import authRoute from "./routes/auth.js";
 import tourRoute from "./routes/tours.js";
+import userRoute from "./routes/users.js";
+import reviewRoute from "./routes/reviews.js";
 
 dotenv.config();
 const app = express();
@@ -25,11 +29,18 @@ const connect = async () => {
   }
 };
 
+const corsOptions = {
+  origin: true,
+  credentials: true,
+};
 // middlewares
 app.use(express.json());
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(cookieParser());
-app.use("/tours", tourRoute);
+app.use("/api/v1/auth", authRoute);
+app.use("/api/v1/tours", tourRoute);
+app.use("/api/v1/users", userRoute);
+app.use("/api/v1/review", reviewRoute);
 
 // app running port
 app.listen(port, () => {
