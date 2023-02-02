@@ -108,4 +108,50 @@ export const getTourBySearch = async (req, res) => {
 
   const distance = parseInt(req.query.distance);
   const maxGroupSize = parseInt(req.query.maxGroupSize);
+
+  try {
+    // gte mean  greates than equal
+    const tours = await Tour.find({
+      city,
+      distance: { $gte: distance },
+      maxGroupSize: { $gte: maxGroupSize },
+    });
+    res.status(200).json({
+      success: true,
+      message: "Successful",
+      data: tours,
+    });
+  } catch (error) {
+    res.status(404).json({
+      success: false,
+      message: "Not Founded..!",
+    });
+  }
+};
+
+// get featured all tour
+export const getFeaturedTour = async (req, res) => {
+  try {
+    const tours = await Tour.find({ featured: true }).limit(8);
+
+    res.status(200).json({
+      success: true,
+      message: "Successful",
+      data: tours,
+    });
+  } catch (error) {
+    res
+      .status(404)
+      .json({ success: false, message: "Not Found. Try Again..!" });
+  }
+};
+
+// get tour counts
+export const getTourCounts = async (req, res) => {
+  try {
+    const tourCount = await Tour.estimatedDocumentCount();
+    res.status(200).json({ success: true, data: tourCount });
+  } catch (error) {
+      res.status(500).json({successfalse,message:"Failed to fetch"})
+  }
 };
