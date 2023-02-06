@@ -116,7 +116,7 @@ export const getTourBySearch = async (req, res) => {
       city,
       distance: { $gte: distance },
       maxGroupSize: { $gte: maxGroupSize },
-    }).populate("reviews")
+    }).populate("reviews");
     res.status(200).json({
       success: true,
       message: "Successful",
@@ -131,9 +131,11 @@ export const getTourBySearch = async (req, res) => {
 };
 
 // get featured all tour
-export const getFeaturedTour = async (req, res) => {
+export const getFeaturedTours = async (req, res) => {
   try {
-    const tours = await Tour.find({ featured: true }).limit(8).populate("reviews");
+    const tours = await Tour.find({ featured: true })
+      .limit(8)
+      .populate("reviews");
 
     res.status(200).json({
       success: true,

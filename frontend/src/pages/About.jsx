@@ -1,15 +1,20 @@
 import React from "react";
 import { Container, Row, Col } from "reactstrap";
 
+import CommonAbout from "../shared/CommonAbout";
+
 const About = () => {
   return (
-    <section className="about">
-      <Container>
-        <Row>
-          <Col lg="12">Hello</Col>
-        </Row>
-      </Container>
-    </section>
+    <>
+      <CommonAbout title={"About US"} />
+      <section className="about">
+        <Container>
+          <Row>
+            <Col lg="12">Abot US</Col>
+          </Row>
+        </Container>
+      </section>
+    </>
   );
 };
 
