@@ -2,12 +2,13 @@ import React, { useRef, useState } from "react";
 import "../styles/tourdetails.css";
 import { Container, Row, Col, Form, ListGroup } from "reactstrap";
 import { useParams } from "react-router-dom";
-import tourData from "../assets/data/tours";
+// import tourData from "../assets/data/tours";
 import calculateAvgRating from "../utils/avgRating";
 import avatar from "../assets/images/avatar.jpg";
 import Booking from "../components/booking/Booking";
 import NewsLetter from "../shared/NewsLetter"
-
+import useFetch from "../hooks/useFetch"
+import {BASE_URL} from "../utils/config"
 const TourDetails = () => {
   const { id } = useParams();
 
@@ -16,7 +17,9 @@ const TourDetails = () => {
   const [tourRating, setTourRating] = useState(null);
 
   // API call & load out data from database
-  const tour = tourData.find((tour) => tour.id === id);
+  // fetch data from db
+  // const tour = tourData.find((tour) => tour.id === id);
+  const {data:tour}=useFetch(`${BASE_URL}/tours/${id}`)
 
   // destructure properties from tour object
   const {
