@@ -1,38 +1,93 @@
-.App {
-  text-align: center;
+@import url("https://fonts.googleapis.com/css2?family=Island+Moments&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap");
+
+:root {
+  --primary-color: #ff7e01;
+  --secondary-color: #faa935;
+  --heading-color: #0b2727;
+  --text-color: #6e7074;
+  --font-name: "Montserrat", sans-serif;
+  --subtitle-font-name: "Island Moments", sa;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body {
+  font-family: var(--font-name);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+section {
+  padding: 50px 0px;
 }
 
-.App-link {
-  color: #61dafb;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--heading-color);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+a {
+  text-decoration: none;
+  color: unset;
+}
+ul {
+  list-style: none;
+}
+
+.primary__btn {
+  background: var(--primary-color) !important;
+  border: none !important;
+  border-radius: 50px !important;
+  padding: 0.4rem 1.5rem !important;
+    font-weight: 600 !important;
+
+}
+.primary__btn:hover{
+    background: rgb(3, 137, 247) !important;
+    color: #fdfdfd !important;
+    font-weight: 600 !important;
+}
+
+.primary__btn a {
+  font-size: 1.1rem;
+  text-decoration: none;
+  color: #fff;
+}
+.primary__btn a:hover {
+  color: inherit;
+}
+.secondary__btn {
+  background: transparent !important;
+  color: #0b2727 !important;
+  border: none !important;
+  font-weight: 500 !important;
+}
+
+.secondary__btn a {
+  text-decoration: none;
+  font-size: 1.1rem;
+  color: var(--heading-color);
+}
+
+.secondary__btn a:hover {
+  color: inherit;
+}
+
+.section__subtitle {
+  background: var(--secondary-color);
+  font-family: 'Times New Roman', Times, serif;
+  width: max-content;
+  padding: 0.5px 1rem;
+  padding-right: 1rem;
+  border-radius: 50px;
+  font-weight: 500;
+  font-size: 1.7rem;
+  color: var(--heading-color);
 }
